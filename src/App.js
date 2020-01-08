@@ -40,18 +40,7 @@ class SortingAlgoVisualizer extends Component {
   };
 
   generateList = () => {
-    // if (!this.state.sortingActivated) {
-    //   this.setState(prevStates => {
-    //     const list = [...Array(prevStates.size).keys()].map(() =>
-    //       Math.floor(Math.random() * 95 + 5)
-    //     );
-    //     if (prevStates.arrayOrder === "Worst Case") list.sort((a, b) => b - a);
-
-    //     list.forEach((x, index, arr) => (arr[index] = [x, index]));
-    //     console.log(list);
-    //     return { list };
-    //   });
-    // }
+  
     if (!this.state.sortingActivated) {
       this.setState(prevStates => {
         const lists = [];
@@ -70,19 +59,10 @@ class SortingAlgoVisualizer extends Component {
             lists.push(tmp);
           }
         }
-        console.log(lists);
         return { lists };
       });
     }
   };
-
-  // changeBarWidth = () => {
-  //   const size = this.state.size;
-  //   const width = size === 40 ? 1 : size === 80 ? 0.5 : size === 120 ? 0.25 : size === 160 ? 0.125 : 0;
-  //   const bars = document.getElementsByClassName("bar");
-  //   bars.forEach((bar) => {bar.style.width = width + "vw"});
-
-  // }
 
   handleArrayOrder = order => {
     if (!this.state.sortingActivated) {
@@ -141,15 +121,12 @@ class SortingAlgoVisualizer extends Component {
 
   setList = (list) => {
     this.setState(prevStates => {
-      // this.resetBars(bars, list);
-      // const lists = prevStates.lists;
-      // lists[index] = list;
-      // return { lists };
+      
       list.forEach((item, index) => {
         item[1] = index;
       });
 
-      const lists = _.cloneDeep(this.state.lists);
+      const lists = _.cloneDeep(prevStates.lists);
       lists.forEach((oldList, index) => {
         const newList = _.cloneDeep(list);
         lists[index] = newList;
@@ -291,7 +268,6 @@ class SortingAlgoVisualizer extends Component {
         });
       }
     }
-    //this.setState({list: newList});
   };
 
   animateSort = (
@@ -324,71 +300,7 @@ class SortingAlgoVisualizer extends Component {
         : algo === "Quick Sort"
         ? animateQuickSort
         : null;
-    // for(let i = 0; i < comparisons.length; i++){
-    //   moved.push([]);
-    // }
-    // comparisons.forEach((pairs, index) => {
-    //   setTimeout(()=>{
-    //     const [i, j] = pairs;
-    //     // bars[i].style.backgroundColor = "orange";
-    //     // bars[j].style.backgroundColor = "red";
-    //     if (i === 0) console.log(bars[i].getBoundingClientRect().left);
-    //     animateComparisons(i, algo, bars[i], bars[j]);
-    //     animateMove(i, bars[i], bars[j]);
-    //     setTimeout(()=>{
-    //       // const [i, j] = pairs;
-    //       // bars[i].style.backgroundColor = "aqua";
-    //       // bars[j].style.backgroundColor = "aqua";
-    //       animateNormal(bars[i], bars[j]);
-    //     }, 350);
-    //   }, 1000*index);
-
-    // })
-
-    // for (let i = 0; i < comparisons.length; i++) {
-    //   iteration = i;
-    //   setTimeout(() => {
-    //       if (comparisons[i].length !== 0)
-    //         {
-    //           animateComparisons(
-    //             algo,
-    //             bars[comparisons[i][0]],
-    //             bars[comparisons[i][1]]
-    //           );
-    //           setTimeout(() => {
-    //             animateNormal(bars[comparisons[i][0]], bars[comparisons[i][1]]);
-    //           }, 7 * speed/10);
-    //         }
-
-    //     if (swaps[i].length !== 0) {
-    //       setTimeout(() => {
-    //         // if (moved.length !== 0)
-    //         //   moved[moved.length - 1].push(
-    //         //     bars[moved[moved.length - 1][0]].getBoundingClientRect().left,
-    //         //     bars[moved[moved.length - 1][1]].getBoundingClientRect().left
-    //         //   );
-    //         // moved.push([
-    //         //   swaps[i][0],
-    //         //   swaps[i][1],
-    //         //   [bars[swaps[i][0]].getBoundingClientRect().left],
-    //         //   [bars[swaps[i][1]].getBoundingClientRect().left]
-    //         // ]);
-    //         const newPositions = calculateNewPosition(swaps[i], size);
-    //         animateMove(newPositions, bars[swaps[i][0]], bars[swaps[i][1]], speed);
-    //       }, 2 * speed/10);
-    //     }
-    //     if (sorted[i].length !== 0) {
-    //       setTimeout(() => {
-    //         animateSorted(bars[sorted[i][0]]);
-
-    //       }, 8 * speed/10);
-    //     }
-    //   }, speed * i);
-    // }
-    // setTimeout(() => {
-    //   this.setList(list, bars);
-    // }, speed * (iteration+1));
-
+   
     if (algo === "Quick Sort")
       iteration = action(
         bars,

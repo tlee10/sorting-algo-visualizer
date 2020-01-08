@@ -3,8 +3,7 @@ import {animateComparisons, animateMove, animateNormal, animateSorted, calculate
 
 export const animateMergeSort = (bars, algo, compareMode, comparisons, swaps, sorted, divisions, speed, size) => {
   let iteration;
-  console.log("division")
-  console.log(divisions);
+  
   for (let i = 0; i < comparisons.length; i++) {
     iteration = i;
     setTimeout(() => {

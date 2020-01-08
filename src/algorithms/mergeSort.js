@@ -5,7 +5,6 @@ const mergeSort = (list) => {
   const newList = _.cloneDeep(list);
   const comparisons = [], swaps = [], sorted = [], divisions = [];
   mergeSort_aux(newList, 0, newList.length - 1, comparisons, swaps, sorted, divisions);
-  console.log(divisions)
   return [newList, comparisons, swaps, sorted, divisions];
 }
 

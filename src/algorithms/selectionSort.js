@@ -2,7 +2,6 @@ import swap from './swap';
 import _ from "lodash";
 
 const selectionSort = (list) => {
-  console.log("select");
   const newList = _.cloneDeep(list);
   const comparisons = [], swaps = [], sorted = [];
 
@@ -18,16 +17,12 @@ const selectionSort = (list) => {
       swaps[swaps.length - 1] = [newList[min][1], newList[i][1], min, i];
       swap(newList, min, i);
     }
-    // else {
-    //   swaps[swaps.length - 1] = [newList[min][1], newList[min][1], min, min];
-
-    // }
+    
     sorted[sorted.length -1] = [newList[i][1]];
   }
   comparisons.push([]);
   swaps.push([]);
   sorted.push([newList[newList.length -1][1]]);
-  console.log(newList[newList.length -1][1]);
   return [newList, comparisons, swaps, sorted];
 }
 

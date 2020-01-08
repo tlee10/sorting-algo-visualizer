@@ -2,9 +2,7 @@ import {animateComparisons, animateMove, animateNormal, animateSorted, calculate
 
 
 export const animateSelectionSort = (bars, algo, compareMode, comparisons, swaps, sorted, speed, size) => {
-  console.log(sorted);
   let iteration;
-  let id;
   for (let i = 0; i < comparisons.length; i++) {
     iteration = i;
     setTimeout(() => {
