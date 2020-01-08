@@ -36,8 +36,13 @@ class SortingAlgoVisualizer extends Component {
   }
 
   componentDidMount = () => {
+    window.addEventListener('resize', this.generateList);
     this.generateList();
   };
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.generateList);
+  }
 
   generateList = () => {
   
@@ -365,7 +370,7 @@ class SortingAlgoVisualizer extends Component {
           compareMode={compareMode}
           handleCompareMode={this.handleCompareMode}
         ></NavBar>
-        <div className={`outermost-container ${compareMode ? "compare" : ""}`}>
+        <div className={`outermost-container ${compareMode ? "compare" : ""}`} onResize>
           {lists.map((list, row) => (
             <div className="bar-container" style={{border: compareMode ? "1px solid black" : ""}}>
               {list.map((item, index) => (
