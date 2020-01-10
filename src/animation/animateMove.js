@@ -1,5 +1,5 @@
 export const animateMove = (positions, bar1, bar2, speed) => { 
-  const transitionSpeed = 7 * speed/100;
+  const transitionSpeed = 7 * speed/10;
   bar1.style.transform = "translateX(" + positions[1] + "px)";
   bar1.style.transition = "transform " + transitionSpeed + "ms";
   if (bar2 !== null){

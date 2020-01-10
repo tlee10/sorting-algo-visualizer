@@ -144,7 +144,8 @@ class SortingAlgoVisualizer extends Component {
   };
 
   setTransitionSpeed = sliderValue => {
-    const result = Math.floor(1200 / sliderValue);
+    const transitionTime = sliderValue > 50 ? 800 : 1200 
+    const result = Math.floor(transitionTime / (sliderValue/1.5));
     this.setState({ speed: result });
   };
 
