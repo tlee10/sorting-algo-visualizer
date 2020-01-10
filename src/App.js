@@ -85,14 +85,14 @@ class SortingAlgoVisualizer extends Component {
 
   handleSliderMousedown = () => {
     document.addEventListener("mouseup", this.handleSliderMouseup);
-    document.addEventListener("onTouchStart", this.handleSliderMouseup);
+    document.addEventListener("ontouchstart", this.handleSliderMouseup);
   };
 
   handleSliderMouseup = () => {
     const slider = document.getElementById("customRange1");
     this.setTransitionSpeed(slider.value);
     document.removeEventListener("mouseup", this.handleSliderMouseup);
-    document.removeEventListener("onTouchEnd", this.handleSliderMouseup);
+    document.removeEventListener("ontouchend", this.handleSliderMouseup);
   };
 
   handleAlgoDropdown = algo => {
