@@ -130,7 +130,7 @@ class NavBar extends Component {
             </li>
             <li>
               <span className="speed-label" style={{color: "white"}}>Speed</span>
-              <input className= "speed-slider" type="range" id="customRange1" min="1" max="100" onMouseDown={() => handleSliderMousedown()}/>             
+              <input className= "speed-slider" type="range" id="customRange1" min="1" max="100" onMouseDown={() => handleSliderMousedown()} onTouchStart={() => handleSliderMousedown()}/>             
             </li>
 
             <li className="nav-item">

@@ -85,7 +85,7 @@ class SortingAlgoVisualizer extends Component {
 
   handleSliderMousedown = () => {
     document.addEventListener("mouseup", this.handleSliderMouseup);
-    document.addEventListener("ontouchstart", this.handleSliderMouseup);
+    document.addEventListener("ontouchend", this.handleSliderMouseup);
   };
 
   handleSliderMouseup = () => {
