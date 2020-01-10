@@ -17,20 +17,20 @@ export const animateBubbleSort = (bars, algo, compareMode, comparisons, swaps, s
           );
           setTimeout(() => {
             animateNormal(bars[comparisons[i][0]], bars[comparisons[i][1]]); 
-          }, 6 * speed/10);         
+          }, 8 * speed/10);         
         }
 
       if (swaps[i].length !== 0) {
           const newPositions = calculateNewPosition(swaps[i], size, compareMode);
           setTimeout(() => {
-            animateMove(newPositions, bars[swaps[i][0]], bars[swaps[i][1]], speed);
+            animateMove(newPositions, bars[swaps[i][0]], bars[swaps[i][1]], speed/1.5);
           }, 2 * speed/10)
       }
 
       if (sorted[i].length !== 0) {
         setTimeout(() => {
           animateSorted(bars[sorted[i][0]]);
-        }, 8 * speed/10);
+        }, 9 * speed/10);
 
       }
     }, speed * i);
